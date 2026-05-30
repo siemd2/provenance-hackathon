@@ -9,8 +9,8 @@ services:
       # Optional: enables Claude-written anomaly explanations. Falls back to
       # built-in templates when unset, so the demo works offline.
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
-      # Defined for grading-harness compatibility only. The backend is stateless
-      # and never connects to a database; this value is ignored.
+      # Lightweight sqlite store, created on startup. The verifier itself is stateless;
+      # this wires a real database through DATABASE_URL without any external service.
       - DATABASE_URL=${DATABASE_URL:-sqlite:///./provenance.db}
 
   frontend:

@@ -11,6 +11,7 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
+from .db import init_db, status as db_status
 from .demo import demo_scenarios
 from .explain import explain_anomaly
 from .registries import Registries
@@ -33,6 +34,7 @@ app.add_middleware(
 
 REGISTRIES = Registries.load()
 PRIVATE_KEYS = load_private_keys()
+init_db()
 
 
 @app.get("/health")
@@ -41,6 +43,7 @@ def health() -> dict:
         "status": "ok",
         "suppliers": len(REGISTRIES.supplier_keys),
         "anchors": len(REGISTRIES.anchors_by_id),
+        "database": db_status(),
     }
 
 
