@@ -1,0 +1,366 @@
+{
+  "canonical_times": [
+    "09:00:00",
+    "14:30:00"
+  ],
+  "labour_hours_max": {
+    "raw_material_supply": 1.0,
+    "final_integration": 48.6,
+    "component_manufacture": 14.7,
+    "subassembly": 24.7
+  },
+  "supplier_countries": {
+    "sup-0005": [
+      "CA",
+      "EU",
+      "GB"
+    ],
+    "sup-0007": [
+      "CA",
+      "EU",
+      "GB"
+    ],
+    "sup-0031": [
+      "CN",
+      "EU",
+      "GB"
+    ],
+    "sup-0003": [
+      "CA",
+      "EU",
+      "GB"
+    ],
+    "sup-0017": [
+      "EU",
+      "GB",
+      "US"
+    ],
+    "sup-0009": [
+      "CA",
+      "EU",
+      "GB"
+    ],
+    "sup-0018": [
+      "EU",
+      "GB",
+      "US"
+    ],
+    "sup-0047": [
+      "EU",
+      "GB",
+      "IT",
+      "KR"
+    ],
+    "sup-0002": [
+      "CA",
+      "EU",
+      "GB"
+    ],
+    "sup-0038": [
+      "EU",
+      "GB",
+      "IT",
+      "JP"
+    ],
+    "sup-0013": [
+      "CA",
+      "EU",
+      "GB"
+    ],
+    "sup-0015": [
+      "CA",
+      "EU",
+      "GB"
+    ],
+    "sup-protolabs": [
+      "EU",
+      "GB",
+      "US"
+    ],
+    "sup-nanuk": [
+      "CA",
+      "EU",
+      "GB"
+    ],
+    "sup-0049": [
+      "EU",
+      "GB",
+      "IT",
+      "TW"
+    ],
+    "sup-0035": [
+      "CN",
+      "EU",
+      "GB",
+      "IT"
+    ],
+    "sup-0016": [
+      "EU",
+      "GB",
+      "US"
+    ],
+    "sup-0011": [
+      "CA",
+      "EU",
+      "GB"
+    ],
+    "sup-0048": [
+      "EU",
+      "GB",
+      "TW"
+    ],
+    "sup-0042": [
+      "DE",
+      "EU",
+      "GB"
+    ],
+    "sup-0014": [
+      "CA",
+      "EU",
+      "GB"
+    ],
+    "sup-0037": [
+      "EU",
+      "GB",
+      "JP"
+    ],
+    "sup-0008": [
+      "CA",
+      "EU",
+      "GB"
+    ],
+    "sup-sequre": [
+      "CN",
+      "EU",
+      "GB"
+    ],
+    "sup-0033": [
+      "CN",
+      "EU",
+      "GB"
+    ],
+    "sup-0028": [
+      "CN",
+      "EU",
+      "GB"
+    ],
+    "sup-0032": [
+      "CN",
+      "EU"
+    ],
+    "sup-0012": [
+      "CA",
+      "EU",
+      "GB",
+      "IT"
+    ],
+    "sup-0040": [
+      "EU",
+      "GB",
+      "JP"
+    ],
+    "sup-0050": [
+      "EU",
+      "GB",
+      "TW"
+    ],
+    "sup-0006": [
+      "CA",
+      "EU",
+      "GB"
+    ],
+    "sup-0039": [
+      "EU",
+      "GB",
+      "JP"
+    ],
+    "sup-0045": [
+      "EU",
+      "GB",
+      "KR"
+    ],
+    "sup-0019": [
+      "EU",
+      "GB",
+      "US"
+    ],
+    "sup-0057": [
+      "EU",
+      "GB",
+      "UK"
+    ],
+    "sup-0043": [
+      "DE",
+      "EU",
+      "GB"
+    ],
+    "sup-0044": [
+      "DE",
+      "EU",
+      "GB"
+    ],
+    "sup-0010": [
+      "CA",
+      "EU",
+      "GB"
+    ],
+    "sup-0041": [
+      "DE",
+      "EU"
+    ],
+    "sup-0026": [
+      "EU",
+      "GB",
+      "US"
+    ],
+    "sup-0034": [
+      "CN",
+      "EU",
+      "GB"
+    ],
+    "sup-0023": [
+      "EU",
+      "GB",
+      "IT",
+      "US"
+    ],
+    "sup-0021": [
+      "EU",
+      "GB",
+      "US"
+    ],
+    "sup-0025": [
+      "EU",
+      "GB",
+      "US"
+    ],
+    "sup-0030": [
+      "CN",
+      "EU",
+      "GB"
+    ],
+    "sup-0020": [
+      "EU",
+      "GB",
+      "US"
+    ],
+    "sup-tbs": [
+      "EU",
+      "GB"
+    ],
+    "sup-0001": [
+      "CA",
+      "EU",
+      "GB"
+    ],
+    "sup-0029": [
+      "CN",
+      "EU",
+      "GB"
+    ],
+    "sup-0004": [
+      "CA",
+      "EU",
+      "GB"
+    ],
+    "sup-0024": [
+      "EU",
+      "GB",
+      "US"
+    ],
+    "sup-0022": [
+      "EU",
+      "GB",
+      "US"
+    ],
+    "sup-0036": [
+      "EU",
+      "GB",
+      "IT",
+      "JP"
+    ],
+    "sup-mcmaster": [
+      "EU",
+      "GB",
+      "US"
+    ],
+    "sup-avss-corp": [
+      "CA",
+      "EU",
+      "GB"
+    ],
+    "sup-0056": [
+      "EU",
+      "GB",
+      "UK"
+    ],
+    "sup-0046": [
+      "EU",
+      "GB",
+      "KR"
+    ],
+    "sup-cousin": [
+      "EU",
+      "FR",
+      "GB"
+    ],
+    "sup-0061": [
+      "EU",
+      "GB",
+      "SG"
+    ],
+    "sup-0059": [
+      "EU",
+      "GB",
+      "IN"
+    ],
+    "sup-0027": [
+      "EU",
+      "GB",
+      "US"
+    ],
+    "sup-0051": [
+      "EU",
+      "FR",
+      "GB"
+    ],
+    "sup-0060": [
+      "CH",
+      "EU",
+      "GB"
+    ],
+    "sup-porcher": [
+      "EU",
+      "FR",
+      "GB"
+    ],
+    "sup-0052": [
+      "EU",
+      "FR",
+      "GB"
+    ],
+    "sup-0053": [
+      "EU",
+      "FR",
+      "GB"
+    ],
+    "sup-0055": [
+      "EU",
+      "GB",
+      "NL"
+    ],
+    "sup-0054": [
+      "EU",
+      "GB",
+      "NL"
+    ],
+    "sup-0058": [
+      "EU",
+      "GB"
+    ]
+  },
+  "_meta": {
+    "clean_chains": 705,
+    "total_rows": 1000
+  }
+}
