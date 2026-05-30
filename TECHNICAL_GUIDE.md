@@ -1,4 +1,4 @@
-# Cryptographic Provenance for Canadian Supply Chains — Technical Guide
+# Cryptographic Provenance for Canadian Supply Chains: Technical Guide
 
 **AVSS / Ottawa Defence Hackathon · Challenge brief for participants**
 
@@ -6,14 +6,14 @@
 
 Canada's "Buy Canadian" rules turn on two designations:
 
-- **Product of Canada** — nearly all direct production costs incurred in Canada.
-- **Made in Canada** — a majority of direct costs incurred in Canada, *plus* the last substantial transformation performed in Canada.
+- **Product of Canada**: nearly all direct production costs incurred in Canada.
+- **Made in Canada**: a majority of direct costs incurred in Canada, *plus* the last substantial transformation performed in Canada.
 
-Today these claims rest on supplier self-reporting: hard to verify, easy to misrepresent, and impossible to reconstruct once a product has passed through many hands. Your job is to build a system that establishes provenance cryptographically — every supplier contribution is a signed attestation, attestations link across tiers into a tamper-evident chain, and the chain can be independently verified and used to compute the Canadian-content designation.
+Today these claims rest on supplier self-reporting: hard to verify, easy to misrepresent, and impossible to reconstruct once a product has passed through many hands. Your job is to build a system that establishes provenance cryptographically: every supplier contribution is a signed attestation, attestations link across tiers into a tamper-evident chain, and the chain can be independently verified and used to compute the Canadian-content designation.
 
 ## 2. What you build
 
-A backend exposing **`POST /verify`** that, given a product's attestation chain, returns its Canadian-content percentage, its designation, whether the chain is valid, and any integrity anomalies it detects. You also build two UIs (supplier issuing, purchaser lookup) for the demo — but only the backend is automatically scored.
+A backend exposing **`POST /verify`** that, given a product's attestation chain, returns its Canadian-content percentage, its designation, whether the chain is valid, and any integrity anomalies it detects. You also build two UIs (supplier issuing, purchaser lookup) for the demo, but only the backend is automatically scored.
 
 Submit as a **Docker Compose** project; the backend must listen on the port named in the event instructions.
 
@@ -56,8 +56,8 @@ Each attestation is a signed JSON object:
 Key points:
 
 - `action_type` ∈ `raw_material_supply | component_manufacture | subassembly | final_integration`. Raw-material supply has no parents and carries the purchase cost in `material_cad`.
-- `performed_in_country` is where *this step's* work happened. It is **independent** of the supplier's registered country — a Canadian firm may perform work abroad and vice-versa. Canadian content is attributed by `performed_in_country`, per attestation.
-- `parents[].content_hash` is the SHA-256 of the parent attestation's canonical form (signature excluded). It binds each child to its parent's *content*, not just its id — the chain is hash-linked.
+- `performed_in_country` is where *this step's* work happened. It is **independent** of the supplier's registered country. A Canadian firm may perform work abroad and vice-versa. Canadian content is attributed by `performed_in_country`, per attestation.
+- `parents[].content_hash` is the SHA-256 of the parent attestation's canonical form (signature excluded). It binds each child to its parent's *content*, not just its id. The chain is hash-linked.
 - The attestations you receive for one product include the leaf product plus all ancestors, in **unspecified order**. Build the DAG from `parents`.
 
 ## 5. Canonical serialization & signatures
@@ -93,11 +93,11 @@ CAD only; no currency or unit conversion. A child must consume in its parent's `
 
 `anchor_registry.json` is the published, signed record of genuine attestations: it maps real `attestation_id`s to their content hash and the product they belong to. It is the source of truth an attacker cannot rewrite. Use it as you see fit.
 
-It is **not exhaustive** — legitimately new products exist whose attestations are not anchored. Absence from the registry is therefore *not itself* a problem; a clean unanchored chain is valid.
+It is **not exhaustive**: new products exist whose attestations are not anchored. Absence from the registry is therefore *not itself* a problem; a clean unanchored chain is valid.
 
-## 8. Threat model — read this
+## 8. Threat model (read this)
 
-**All supplier private keys ship in this kit.** Key theft is out of scope. This means an adversary can produce a perfectly, correctly signed malicious chain. **A valid signature proves a message wasn't garbled — it does not prove the claim is true.** Robust verification has to reason about whether a chain is internally consistent and physically/economically plausible, not just whether it's signed.
+**All supplier private keys ship in this kit.** Key theft is out of scope. This means an adversary can produce a correctly signed malicious chain. **A valid signature proves a message wasn't garbled. It does not prove the claim is true.** Robust verification has to reason about whether a chain is internally consistent and physically/economically plausible, not just whether it's signed.
 
 ## 9. The `/verify` contract
 
@@ -121,13 +121,13 @@ Response:
 }
 ```
 
-`anomalies[].type` is a **free-form** short label. The examples you will see named in this kit and the training data are **not a complete list of what can go wrong** — discovering the full range of integrity attacks is a core part of the challenge. Identify the offending attestation and describe the violation; a recognizable type label earns extra credit.
+`anomalies[].type` is a **free-form** short label. The examples you will see named in this kit and the training data are **not a complete list of what can go wrong**. Discovering the full range of integrity attacks is a core part of the challenge. Identify the offending attestation and describe the violation; a recognizable type label earns extra credit.
 
 ## 10. How you're scored
 
 Only the backend is auto-graded, on a held-out set of chains, against four things: the Canadian-content percentage (within a small tolerance), the designation (exact), whether you detected the integrity violations that exist (by attestation, scored by F1 so over-flagging hurts), and how well you classified them. Harder cases are weighted more heavily.
 
-Cases fall on a spectrum. Many are caught by a careful, spec-correct implementation. Some are **statistical** — perfectly legal on every individual rule, but anomalous relative to how genuine supply chains actually look; catching these reliably rewards learning from the data in `training_corpus.jsonl`. Aim for a solid correct core first, then push the ceiling.
+Cases fall on a spectrum. Many are caught by a careful, spec-correct implementation. Some are **statistical**: legal on every individual rule, but anomalous relative to how genuine supply chains look; catching these rewards learning from the data in `training_corpus.jsonl`. Aim for a solid correct core first, then push the ceiling.
 
 ## 11. Get started
 

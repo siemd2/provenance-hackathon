@@ -1,6 +1,6 @@
-# Challenge Instructions — Cryptographic Provenance for Canadian Supply Chains
+# Challenge Instructions: Cryptographic Provenance for Canadian Supply Chains
 
-**AVSS / Ottawa Defence Hackathon**
+**Ottawa Defence Hackathon**
 
 This document covers **what to build, what to submit, and how you're judged.** For the
 technical detail of the verification backend, see [`TECHNICAL_GUIDE.md`](TECHNICAL_GUIDE.md).
@@ -11,7 +11,7 @@ technical detail of the verification backend, see [`TECHNICAL_GUIDE.md`](TECHNIC
 *Made in Canada*, but those claims rest on unverifiable supplier self-reporting. Build a
 system where every supplier contribution is a cryptographically signed attestation,
 attestations link across tiers into a tamper-evident provenance chain, and the chain can
-be independently verified and used to compute the Canadian-content designation — while
+be independently verified and used to compute the Canadian-content designation, while
 detecting forgery, tampering, replay, and other integrity attacks.
 
 ## What you deliver
@@ -24,13 +24,13 @@ A service exposing **`POST /verify`** that takes a product's attestation chain a
 its Canadian-content percentage, designation, validity, and detected anomalies (full
 contract in `TECHNICAL_GUIDE.md` §9). This is the only component scored by the automated
 harness. Package it as a **Docker Compose** project that comes up with `docker compose up`
-and serves `/verify` on **[organizer: confirm port, e.g. 8080]**.
+and serves `/verify` on **port 8000**.
 
 ### 2. Two user interfaces (judged in the demo)
 
-- **Supplier UI** — lets a supplier issue a signed attestation for their contribution
+- **Supplier UI** lets a supplier issue a signed attestation for their contribution
   (materials/labour/location), producing a node in the chain.
-- **Purchaser / end-user UI** — lets someone look up a product (e.g. by scanning a QR
+- **Purchaser / end-user UI** lets someone look up a product (e.g. by scanning a QR
   code) and see its provenance, Canadian-content percentage, and verification status in a
   clear, accessible way.
 
@@ -39,9 +39,9 @@ chain you can resolve in the purchaser UI is in [`worked-example/`](worked-examp
 
 ### 3. Judge presentation
 
-A short presentation/demo to the judges covering your approach, your architecture, how you
-detect attacks (especially the subtle ones), and a live walkthrough of the two UIs.
-**[organizer: confirm length and format]**
+A **5-minute presentation (hard cut-off), followed by 2 minutes of Q&A** with the judges,
+covering your approach, your architecture, how you detect attacks (especially the subtle
+ones), and a live walkthrough of the two UIs.
 
 ## What you're given (this kit)
 
@@ -57,10 +57,21 @@ participant specs (`spec/`), and the worked example. See [`README.md`](README.md
 
 ## How you're judged
 
-The automated backend score maps to the **technical implementation** criterion; the UIs and
-presentation are judged separately.
+Total **33 points** across five criteria. Only **Technical Implementation** is scored
+automatically (by the harness); the rest are judged from your submission, demo, and
+presentation.
 
-[TBA]
+| Criterion | Points | What it measures |
+|---|---|---|
+| Entrepreneurial Drive | 10 | Initiative, problem understanding, and execution mindset: leadership, proactiveness, and the ability to translate ideas into actionable outcomes. |
+| Algorithm Approach | 5 | Logic, methodology, and structure of the algorithmic solution: originality, efficiency, clarity of design, and appropriateness of the chosen approach. |
+| Technical Implementation | 10 | **Your automated harness score, scaled to 10 points**: functionality, robustness, integration, performance, overall execution. Working prototypes and demonstrated technical competence score higher. |
+| Feasibility & Scalability | 5 | Practicality of real-world implementation: operational viability, scalability potential, and resource considerations. |
+| Storytelling & Vision | 3 | Clarity, persuasiveness, and strategic vision in the presentation: how well you communicate the problem, solution, impact, and long-term vision. |
+| **Total** | **33** | |
+
+**Technical Implementation = 10 × (your harness score ÷ 100).** What the harness measures
+is described next.
 
 ### How the automated backend score works
 
@@ -70,7 +81,7 @@ which integrity violations you detected (by attestation, scored by **F1** so ove
 hurts), and how well you classified them. Harder cases weigh more.
 
 Cases span a spectrum (see `TECHNICAL_GUIDE.md` §10): many fall to a careful, spec-correct
-implementation; some are **statistical** — legal on every individual rule but anomalous
+implementation; some are **statistical**: legal on every individual rule but anomalous
 relative to how genuine chains look, rewarding teams who learn from the training corpus. A
 solid correct core gets you a strong score; the top of the leaderboard goes to teams who
 also model the statistical cases. Use `self_test.py` to calibrate against the training data.

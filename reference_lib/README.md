@@ -3,7 +3,7 @@
 Byte-exact core for the Cryptographic Provenance challenge: canonical
 serialization, content hashing, and Ed25519 sign/verify. Used by the organizer
 generator + scoring harness and shipped to teams. The canonical serialization
-here is the source of truth — reimplementations in other languages must match
+here is the source of truth. Reimplementations in other languages must match
 the golden vectors in `tests/` byte-for-byte.
 
 ## Install

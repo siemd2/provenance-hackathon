@@ -5,8 +5,8 @@ against training_corpus.jsonl (which ships with labels) so you can iterate local
 The official scored set is held out and uses the same logic.
 
 Usage:
-    python3 self_test.py http://localhost:8080/verify
-    python3 self_test.py http://localhost:8080/verify --limit 200
+    python3 self_test.py http://localhost:8000/verify
+    python3 self_test.py http://localhost:8000/verify --limit 200
 
 Per-case scoring:
   T4 cases (statistical):  F1 over the perturbed attestation_ids
